@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Warm Tactile Paper & Ink Foundation (A24 / Independent Press Inspired) */
+  --color-paper: #f5f4ef;
+  --color-paper-subtle: #eae8e1;
+  --color-line: rgba(20, 21, 24, 0.12);
+  --color-line-lit: rgba(20, 21, 24, 0.35);
+  --color-ink: #141518;
+  --color-ink-secondary: #5a5d66;
+  --color-ink-tertiary: #8b8f99;
+
+  /* Dynamic Active Atmosphere Tint */
+  --atmosphere-tint: rgba(95, 135, 155, 0.12);
+
+  /* Fonts */
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", Menlo, Monaco, monospace;
+}
+
+html, body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Analog Film / Paper Subtle Grain Overlay */
+.paper-grain {
+  background-image: radial-gradient(rgba(20, 21, 24, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Vinyl Record Disc Materiality */
+.record-disc-rim {
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.45),
+    0 10px 20px -5px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.record-hub {
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.5),
+    0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Custom Minimal Audio Scrubber */
+input[type="range"].paper-scrubber {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"].paper-scrubber:focus {
+  outline: none;
+}
+
+input[type="range"].paper-scrubber::-webkit-slider-runnable-track {
+  height: 2px;
+  background: rgba(20, 21, 24, 0.2);
+  transition: height 0.15s ease, background 0.15s ease;
+}
+
+input[type="range"].paper-scrubber:hover::-webkit-slider-runnable-track {
+  height: 4px;
+  background: rgba(20, 21, 24, 0.4);
+}
+
+input[type="range"].paper-scrubber::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  margin-top: -4px;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"].paper-scrubber:hover::-webkit-slider-thumb {
+  transform: scale(1.4);
+}
+
+/* Keyboard focus rings */
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
